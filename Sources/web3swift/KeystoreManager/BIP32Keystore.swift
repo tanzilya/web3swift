@@ -187,7 +187,7 @@ public class BIP32Keystore: AbstractKeystore {
         if data?.count != 82 {
             throw AbstractKeystoreError.encryptionError("Invalid expected data length")
         }
-        let saltLen = 32
+        let saltLen = 16
         let saltData = Data.random(length: saltLen)
         guard let derivedKey = scrypt(password: password, salt: saltData, length: dkLen, N: N, R: R, P: P) else { throw AbstractKeystoreError.keyDerivationError }
         let last16bytes = derivedKey[(derivedKey.count - 16) ... (derivedKey.count - 1)]
