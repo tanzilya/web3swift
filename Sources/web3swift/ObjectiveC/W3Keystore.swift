@@ -297,7 +297,7 @@ extension BIP32Keystore {
 		try swift.createNewCustomChildAccount(password: password, path: path)
 	}
 	
-	@objc public func regenerate(oldPassword: String, newPassword: String, dkLen: Int = 32, N: Int = 4096, R: Int = 6, P: Int = 1) throws {
+	@objc public func regenerate(oldPassword: String, newPassword: String, dkLen: Int = 32, N: Int = 131072, R: Int = 8, P: Int = 1) throws {
 		try swift.regenerate(oldPassword: oldPassword, newPassword: newPassword, dkLen: dkLen, N: N, R: R, P: P)
 	}
 	/// also check for empty data
@@ -384,7 +384,7 @@ extension EthereumKeystoreV3 {
 		self.swift = swift
 	}
 	
-	@objc public func regenerate(oldPassword: String, newPassword: String, dkLen: Int = 32, N: Int = 4096, R: Int = 6, P: Int = 1) throws {
+	@objc public func regenerate(oldPassword: String, newPassword: String, dkLen: Int = 32, N: Int = 131072, R: Int = 8, P: Int = 1) throws {
 		try swift.regenerate(oldPassword: oldPassword, newPassword: newPassword, dkLen: dkLen, N: N, R: R, P: P)
 	}
 	
